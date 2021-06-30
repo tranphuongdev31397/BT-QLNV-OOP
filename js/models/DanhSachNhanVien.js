@@ -36,7 +36,7 @@ DanhSachNhanVien.prototype.layThongTinNV = function(tkNV){
 DanhSachNhanVien.prototype.suaNhanVien = function(nhanVienSua){
     var viTri = this.timViTri(nhanVienSua.tkNv)
     if (viTri !== -1){
-      return  this.arrDSNV [viTri] = nhanVienMoiSua 
+      return  this.arrDSNV [viTri] = nhanVienSua 
     }
 }
 //Phương thức tìm nhân viên theo loại, trả về 1 mảng chứa chuỗi tìm kiếm

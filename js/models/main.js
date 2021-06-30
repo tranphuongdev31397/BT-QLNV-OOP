@@ -107,7 +107,7 @@ function validation(tkNV, tenNV, passNV, emailNV, ngayLamNV, luongCbNV, gioLamNV
     // Kiểm tra tài khoản
     isValid &= validator.kiemTraRong(tkNV, 'tbTKNV', '(*) Tài khoản không được để trống')
         && validator.kiemTraDoDaiKiTu(tkNV, 'tbTKNV', '(*) Tài khoản phải có độ dài từ 4-6 kí tự', 4, 6)
-        && validator.kiemTraTrungTK(tkNV, 'tbTKNV', '(*) Tài khoản nhân viên bị trùng, vui lòng điền tài khoản khác', dsnv.arrDSNV)
+      
     //Kiểm tra họ tên
     isValid &= validator.kiemTraRong(tenNV, 'tbTen', '(*) Tên nhân viên không được để trống')
         && validator.kiemTraTiengViet(tenNV, 'tbTen', '(*) Tên nhân viên phải là dạng chuỗi');
@@ -143,9 +143,10 @@ getEle('btnThemNV').addEventListener('click', function () {
     var chucVuNV = getEle('chucvu').value
     var gioLamNV = getEle('gioLam').value
     //Validation
+    var isValid = validation(tkNV, tenNV, passNV, emailNV, ngayLamNV, luongCbNV, gioLamNV, chucVuNV)
+   
 
-
-    if (!validation(tkNV, tenNV, passNV, emailNV, ngayLamNV, luongCbNV, gioLamNV, chucVuNV)) return
+    if (!isValid ) return
     //Khởi tạo đối tượng nhanVien từ lớp đối tượng NhanVien
 
 
@@ -182,6 +183,7 @@ getEle('btnCapNhat').addEventListener('click', function () {
     //Kiểm tra họ tên
     isValid &= validator.kiemTraRong(tenNV, 'tbTen', '(*) Tên nhân viên không được để trống')
         && validator.kiemTraTiengViet(tenNV, 'tbTen', '(*) Tên nhân viên phải là dạng chuỗi');
+        console.log(!isValid)
     //Kiểm tra mật khẩu
     isValid &= validator.kiemTraRong(passNV, 'tbMatKhau', '(*) Mật khẩu không được để trống')
         && validator.kiemTraMatKhau(passNV, 'tbMatKhau', '(*) Mật khẩu  phải từ 6-10 ký tự (chứa ít nhất 1 ký tự số, 1 ký tự in hoa, 1 ký tự đặc biệt)')
@@ -199,6 +201,7 @@ getEle('btnCapNhat').addEventListener('click', function () {
         && validator.kiemTraSo(gioLamNV, 'tbGiolam', '(*) Giờ làm phải từ 80 giờ đến 200 giờ', 80, 200);
     //Kiểm tra chức vụ
     isValid &= validator.kiemTraChucVu(chucVuNV, 'tbChucVu', '(*) Vui lòng chọn chức vụ')
+    console.log(isValid)
     if (!isValid) return;
 
 
