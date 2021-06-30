@@ -82,6 +82,7 @@ function layThongTinNV(tkNV) {
     getEle('gioLam').value = nv.gioLam
     getEle('btnThemNV').style.display = "none"
     getEle('btnCapNhat').style.display = "block"
+    getEle('chucvu').value = nv.chucVu
 
 
     //Tạo sự kiện click vào nút sửa thì gọi modal
